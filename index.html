@@ -430,6 +430,33 @@
                 flex-direction: column;
                 gap: 20px;
             }
+
+    @keyframes logoFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes logoFloat {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0); }
+    }
+
+    .logo-principal {
+        animation: logoFadeUp 1.2s ease forwards;
+    }
+
+    .logo-principal.float {
+        animation: logoFloat 6s ease-in-out infinite;
+    }
+</style>
+
         }
     </style>
 </head>
@@ -458,7 +485,7 @@
     <section id="accueil">
         <div class="accueil-container">
             <div class="logo-title-wrapper">
-                <img src="logo.png" alt="Logo Gérald Bergès Acupuncture" class="logo-principal">
+                <img src="logo.png" alt="Logo Gérald Bergès Acupuncture" class="logo-principal float">
                 <h2 class="centre-title">Centre de Soins Chinois</h2>
             </div>
             
