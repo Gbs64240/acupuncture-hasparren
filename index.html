@@ -191,11 +191,29 @@
             margin-bottom: 40px;
         }
         
+        /* Animation du logo principal */
         .logo-principal {
             max-width: 200px;
             margin-bottom: 20px;
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+            animation: breatheRotate 4s ease-in-out infinite;
         }
+
+       @keyframes breatheRotate {
+             0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+       25% {
+        transform: scale(1.05) rotate(2deg);
+    }
+       50% {
+        transform: scale(1.1) rotate(0deg);
+    }
+       75% {
+        transform: scale(1.05) rotate(-2deg);
+    }
+}
+
         
         .centre-title {
             font-size: 2em;
