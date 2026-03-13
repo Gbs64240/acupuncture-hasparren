@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gérald Bergès - Acupuncture & Médecine Traditionnelle Chinoise</title>
+    
+    <style>
+        /* === RESET & BASE === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: #fdfcfb;
+        }
+
+        /* === ANIMATIONS LOGO === */
+        @keyframes logoFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes logoFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* === HEADER === */
+        .site-header {
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(135deg, #a8d5e2 0%, #c8e6c9 100%);
+        }
+
+        .header-top {
+            text-align: center;
+            padding: 25px 20px 15px;
+            transition: transform 0.6s ease, opacity 0.6s ease, max-height 0.6s ease;
+            will-change: transform, opacity;
+            overflow: hidden;
+            max-height: 500px;
+        }
+
+        .site-header.compact .header-top {
+            transform: translateY(-100%);
+            opacity: 0;
+            max-height: 0;
+            padding: 0;
+        }
+
+        .logo-principal {
+            max-width: 140px;
+            height: auto;
+            margin-bottom: 12px;
+            animation: logoFadeUp 1.2s ease forwards, logoFloat 6s ease-in-out 1.2s infinite;
+        }
+
+        .baseline {
+            font-size: 1rem;
+            color: #2c3e50;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .nom-praticien {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #1a5f7a;
+            margin-bottom: 5px;
+        }
+
+        /* === MENU DE NAVIGATION === */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 15px 10px;
+            gap: 8px;
+        }
+
+        .main-nav li {
+            margin: 0;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #1a5f7a;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .main-nav a:hover {
+            background: linear-gradient(135deg, #a8d5e2 0%, #c8e6c9 100%);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(168, 213, 226, 0.3);
+        }
+
+        /* === SECTION HERO === */
+        .hero {
+            background: linear-gradient(135deg, rgba(168, 213, 226, 0.15) 0%, rgba(200, 230, 201, 0.15) 100%);
+            padding: 50px 20px 40px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #1a5f7a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #34495e;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* === SECTIONS DE CONTENU === */
+        section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            color: #1a5f7a;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #a8d5e2, #c8e6c9);
+            border-radius: 2px;
+        }
+
+        section p, section ul {
+            font-size: 1.05rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        section ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+
+        section li {
+            margin-bottom: 10px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: linear-gradient(135deg, #1a5f7a 0%, #2c7a8c 100%);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #c8e6c9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nom-praticien {
+                font-size: 1.3rem;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-nav a {
+                width: 200px;
+                text-align: center;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-top">
+            <img src="logoGG.png" alt="Logo Gérald Bergès Acupuncture" class="logo-principal">
+            <p class="nom-praticien">Gérald Bergès</p>
+            <p class="baseline">Acupuncture & Médecine traditionnelle chinoise</p>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#presentation">Présentation</a></li>
+                <li><a href="#soins">Soins</a></li>
+                <li><a href="#tarifs">Tarifs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="accueil">
+        <h1>Centre de Soins en Médecine Traditionnelle Chinoise</h1>
+        <p>Retrouvez équilibre et bien-être grâce à l'acupuncture et aux techniques ancestrales de la médecine chinoise.</p>
+    </section>
+
+    <!-- PRÉSENTATION -->
+    <section id="presentation">
+        <h2>Présentation</h2>
+        <p>
+            Bienvenue dans mon cabinet d'acupuncture. Fort de plusieurs années d'expérience et d'une formation approfondie en médecine traditionnelle chinoise, je vous accompagne dans votre quête de santé et d'harmonie.
+        </p>
+        <p>
+            Mon approche holistique prend en compte l'ensemble de votre être : corps, esprit et émotions. Chaque séance est personnalisée selon vos besoins spécifiques.
+        </p>
+    </section>
+
+    <!-- SOINS PROPOSÉS -->
+    <section id="soins">
+        <h2>Soins Proposés</h2>
+        <ul>
+            <li><strong>Acupuncture :</strong> Rééquilibrage énergétique par stimulation de points précis</li>
+            <li><strong>Moxibustion :</strong> Application de chaleur sur les méridiens</li>
+            <li><strong>Ventouses :</strong> Technique de détoxification et relaxation musculaire</li>
+            <li><strong>Diététique chinoise :</strong> Conseils alimentaires personnalisés</li>
+            <li><strong>Tuina :</strong> Massage thérapeutique chinois</li>
+        </ul>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs">
+        <h2>Tarifs</h2>
+        <p>
+            <strong>Consultation initiale :</strong> 70€ (1h30)<br>
+            <strong>Séance de suivi :</strong> 60€ (1h)<br>
+            <strong>Forfait 5 séances :</strong> 270€
+        </p>
+        <p style="font-style: italic; color: #7f8c8d;">
+            Certaines mutuelles prennent en charge tout ou partie des séances d'acupuncture. N'hésitez pas à vous renseigner.
+        </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact & Rendez-vous</h2>
+        <p>
+            <strong>Adresse :</strong> 12 Rue de la Santé, 75000 Paris<br>
+            <strong>Téléphone :</strong> 06 12 34 56 78<br>
+            <strong>Email :</strong> <a href="mailto:contact@geraldberges.fr">contact@geraldberges.fr</a>
+        </p>
+        <p>
+            <strong>Horaires :</strong><br>
+            Lundi - Vendredi : 9h - 19h<br>
+            Samedi : 9h - 13h
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Gérald Bergès - Acupuncture & Médecine Traditionnelle Chinoise</p>
+        <p>Tous droits réservés | <a href="#">Mentions légales</a></p>
+    </footer>
+
+    <!-- SCRIPT SCROLL COMPACT HEADER -->
+    <script>
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('.site-header');
+            const trigger = 80;
+
+            if (window.scrollY > trigger) {
+                header.classList.add('compact');
+            } else {
+                header.classList.remove('compact');
+            }
+        });
+    </script>
+
+</body>
+</html>
